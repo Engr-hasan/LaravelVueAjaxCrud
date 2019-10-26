@@ -10,7 +10,7 @@ class SettingsController extends Controller
 {
     public function BankListv2()
     {
-        $datas = Bank::where('is_active', 1)->orderBy('id', 'desc')
+        $datas = Bank::where('is_active', [1,0])->orderBy('id', 'desc')
             ->get(['id','name', 'is_active','email','location']);
         return $datas;
 

@@ -13,16 +13,18 @@
             <div class="card-body">
                 <table id="lists" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Location</th>
-                        <th>Active Status</th>
-                        <th width="10%">Action</th>
+                    <tr class="text-center">
+                        <th width="5%">Id</th>
+                        <th width="25%">Name</th>
+                        <th width="30%">Email</th>
+                        <th width="15%">Location</th>
+                        <th width="10%">Status</th>
+                        <th width="15%">Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                     <tr v-for="bank, index in banks">
+                        <td>{{ index+1 }}</td>
                         <td>{{ bank.name }}</td>
                         <td>{{ bank.email }}</td>
                         <td>{{ bank.location }}</td>
@@ -31,11 +33,11 @@
                             <span v-else class="label label-danger">In-active</span>
                         </td>
                         <td>
-                            <router-link :to="{name: 'BankEdit', params: {id: bank.id}}" class="btn btn-xs btn-primary">
+                            <router-link :to="{name: 'BankEdit', params: {id: bank.id}}" class="btn btn-sm btn-primary">
                                 Edit
                             </router-link>
                             <a href="#"
-                               class="btn btn-xs btn-danger"
+                               class="btn btn-sm btn-danger"
                                v-on:click="deleteEntry(bank.id, index)">
                                 Delete
                             </a>
@@ -65,7 +67,7 @@
         },
         methods: {
             deleteEntry(id, index) {
-                if (confirm("Do you really want to delete it?")) {
+                if (confirm("Are you sure to delete it?")) {
                     var app = this;
                     axios.get('/settings/bank-list-v2/delete/' + id)
                         .then(function (resp) {

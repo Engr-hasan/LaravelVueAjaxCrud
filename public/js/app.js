@@ -1944,6 +1944,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1988,6 +2007,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2174,6 +2206,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2189,7 +2223,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteEntry: function deleteEntry(id, index) {
-      if (confirm("Do you really want to delete it?")) {
+      if (confirm("Are you sure to delete it?")) {
         var app = this;
         axios.get('/settings/bank-list-v2/delete/' + id).then(function (resp) {
           app.banks.splice(index, 1);
@@ -37557,11 +37591,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("Create new Bank")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "col-md-12" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Create new Bank")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
           _c(
             "form",
             {
@@ -37573,309 +37607,353 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Name")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { class: ["col-md-8", _vm.allerros.name ? "has-error" : ""] },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.name,
-                          expression: "bank.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "name", $event.target.value)
-                        }
-                      }
-                    }),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star" },
+                      [_vm._v("Name")]
+                    ),
                     _vm._v(" "),
-                    _vm.allerros.name
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.name[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.name ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.name,
+                              expression: "bank.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "name", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.name
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.name[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star" },
+                      [_vm._v("Code")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.code ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.code,
+                              expression: "bank.code"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.code },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "code", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.code
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.code[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Code")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { class: ["col-md-8", _vm.allerros.code ? "has-error" : ""] },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.code,
-                          expression: "bank.code"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.code },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "code", $event.target.value)
-                        }
-                      }
-                    }),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star" },
+                      [_vm._v("Email")]
+                    ),
                     _vm._v(" "),
-                    _vm.allerros.code
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.code[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.email ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.email,
+                              expression: "bank.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "email", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.email
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.email[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star" },
+                      [_vm._v("Phone")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.phone ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.phone,
+                              expression: "bank.phone"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "phone", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.phone
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.phone[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Email")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.email ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.email,
-                          expression: "bank.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "email", $event.target.value)
-                        }
-                      }
-                    }),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c("label", { staticClass: "control-label col-md-2 " }, [
+                      _vm._v("Website")
+                    ]),
                     _vm._v(" "),
-                    _vm.allerros.email
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.email[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.website ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.website,
+                              expression: "bank.website"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.website },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "website", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.website
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.website[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star" },
+                      [_vm._v("Location")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.location ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.location,
+                              expression: "bank.location"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.location },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.bank,
+                                "location",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.location
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.location[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Phone")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.phone ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.phone,
-                          expression: "bank.phone"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.phone },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "phone", $event.target.value)
-                        }
-                      }
-                    }),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-2  required-star " },
+                      [_vm._v("Address")]
+                    ),
                     _vm._v(" "),
-                    _vm.allerros.phone
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.phone[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c("label", { staticClass: "control-label col-md-2 " }, [
-                  _vm._v("Website")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.website ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.website,
-                          expression: "bank.website"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.website },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.address ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.address,
+                              expression: "bank.address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "address", $event.target.value)
+                            }
                           }
-                          _vm.$set(_vm.bank, "website", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.website
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.website[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Location")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: [
-                      "col-md-8",
-                      _vm.allerros.location ? "has-error" : ""
-                    ]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.location,
-                          expression: "bank.location"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.location },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "location", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.location
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.location[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star " },
-                  [_vm._v("Address")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.address ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.address,
-                          expression: "bank.address"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.address },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "address", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.address
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.address[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.address
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.address[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" })
+                ])
               ]),
               _vm._v(" "),
               _c(
@@ -37884,7 +37962,10 @@ var render = function() {
                 [
                   _c(
                     "router-link",
-                    { staticClass: "btn btn-default", attrs: { to: "/" } },
+                    {
+                      staticClass: "btn btn-warning float-left",
+                      attrs: { to: "/" }
+                    },
                     [_vm._v("<< Back")]
                   ),
                   _vm._v(" "),
@@ -37906,10 +37987,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-primary pull-right", attrs: { type: "submit" } },
+      { staticClass: "btn btn-primary float-right", attrs: { type: "submit" } },
       [
         _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-        _vm._v(" Save\n                    ")
+        _vm._v(" Save Bank\n                        ")
       ]
     )
   }
@@ -37936,11 +38017,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "panel panel-primary" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new Bank")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("div", { staticClass: "col-md-9" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Create new Bank")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
           _c(
             "form",
             {
@@ -37952,392 +38033,433 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Name")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { class: ["col-md-8", _vm.allerros.name ? "has-error" : ""] },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.name,
-                          expression: "bank.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "name", $event.target.value)
-                        }
-                      }
-                    }),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star" },
+                      [_vm._v("Name")]
+                    ),
                     _vm._v(" "),
-                    _vm.allerros.name
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.name[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Code")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: [
-                      "col-md-8",
-                      _vm.allerros.bank_code ? "has-error" : ""
-                    ]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.bank_code,
-                          expression: "bank.bank_code"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.bank_code },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "bank_code", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.bank_code
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.bank_code[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Email")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.email ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.email,
-                          expression: "bank.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "email", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.email
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.email[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Phone")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.phone ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.phone,
-                          expression: "bank.phone"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.phone },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "phone", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.phone
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.phone[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c("label", { staticClass: "control-label col-md-2 " }, [
-                  _vm._v("Website")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.website ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.website,
-                          expression: "bank.website"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.website },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "website", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.website
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.website[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star" },
-                  [_vm._v("Location")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: [
-                      "col-md-8",
-                      _vm.allerros.location ? "has-error" : ""
-                    ]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.location,
-                          expression: "bank.location"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.location },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "location", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.location
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.location[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  { staticClass: "control-label col-md-2  required-star " },
-                  [_vm._v("Address")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: ["col-md-8", _vm.allerros.address ? "has-error" : ""]
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.address,
-                          expression: "bank.address"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bank.address },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.bank, "address", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.allerros.address
-                      ? _c("span", { class: ["text-danger"] }, [
-                          _vm._v(_vm._s(_vm.allerros.address[0]))
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "col-md-2 required-star",
-                    attrs: { for: "is_active" }
-                  },
-                  [_vm._v("Active Status: ")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6 " }, [
-                  _c("label", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.is_active,
-                          expression: "bank.is_active"
-                        }
-                      ],
-                      attrs: {
-                        name: "is_active",
-                        type: "radio",
-                        checked: "",
-                        value: "1",
-                        id: "is_active"
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.name ? "has-error" : ""
+                        ]
                       },
-                      domProps: {
-                        checked: _vm.bank.is_active == 1,
-                        checked: _vm._q(_vm.bank.is_active, "1")
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.$set(_vm.bank, "is_active", "1")
-                        }
-                      }
-                    }),
-                    _vm._v(" Active")
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.name,
+                              expression: "bank.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "name", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.name
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.name[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("label", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bank.is_active,
-                          expression: "bank.is_active"
-                        }
-                      ],
-                      attrs: {
-                        name: "is_active",
-                        type: "radio",
-                        checked: "",
-                        value: "0",
-                        id: "is_active"
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star" },
+                      [_vm._v("Code")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.bank_code ? "has-error" : ""
+                        ]
                       },
-                      domProps: {
-                        checked: _vm.bank.is_active == 1,
-                        checked: _vm._q(_vm.bank.is_active, "0")
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.bank_code,
+                              expression: "bank.bank_code"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.bank_code },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.bank,
+                                "bank_code",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.bank_code
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.bank_code[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star" },
+                      [_vm._v("Email")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.email ? "has-error" : ""
+                        ]
                       },
-                      on: {
-                        change: function($event) {
-                          return _vm.$set(_vm.bank, "is_active", "0")
-                        }
-                      }
-                    }),
-                    _vm._v(" Inactive")
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.email,
+                              expression: "bank.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "email", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.email
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.email[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _vm.allerros.is_active
-                    ? _c("span", { class: ["text-danger"] }, [
-                        _vm._v(_vm._s(_vm.allerros.is_active[0]))
-                      ])
-                    : _vm._e()
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star" },
+                      [_vm._v("Phone")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.phone ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.phone,
+                              expression: "bank.phone"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "phone", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.phone
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.phone[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c("label", { staticClass: "control-label col-md-4 " }, [
+                      _vm._v("Website")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.website ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.website,
+                              expression: "bank.website"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.website },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "website", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.website
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.website[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star" },
+                      [_vm._v("Location")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.location ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.location,
+                              expression: "bank.location"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.location },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.bank,
+                                "location",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.location
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.location[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group clearfix" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label col-md-4  required-star " },
+                      [_vm._v("Address")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "col-md-8",
+                          _vm.allerros.address ? "has-error" : ""
+                        ]
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.address,
+                              expression: "bank.address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.bank.address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.bank, "address", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.allerros.address
+                          ? _c("span", { class: ["text-danger"] }, [
+                              _vm._v(_vm._s(_vm.allerros.address[0]))
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 row" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-4 required-star",
+                        attrs: { for: "is_active" }
+                      },
+                      [_vm._v("Active Status: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("label", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.is_active,
+                              expression: "bank.is_active"
+                            }
+                          ],
+                          attrs: {
+                            name: "is_active",
+                            type: "radio",
+                            checked: "",
+                            value: "1",
+                            id: "is_active"
+                          },
+                          domProps: {
+                            checked: _vm.bank.is_active == 1,
+                            checked: _vm._q(_vm.bank.is_active, "1")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(_vm.bank, "is_active", "1")
+                            }
+                          }
+                        }),
+                        _vm._v(" Active")
+                      ]),
+                      _vm._v(" "),
+                      _c("label", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bank.is_active,
+                              expression: "bank.is_active"
+                            }
+                          ],
+                          attrs: {
+                            name: "is_active",
+                            type: "radio",
+                            checked: "",
+                            value: "0",
+                            id: "is_active"
+                          },
+                          domProps: {
+                            checked: _vm.bank.is_active == 1,
+                            checked: _vm._q(_vm.bank.is_active, "0")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(_vm.bank, "is_active", "0")
+                            }
+                          }
+                        }),
+                        _vm._v(" Inactive")
+                      ]),
+                      _vm._v(" "),
+                      _vm.allerros.is_active
+                        ? _c("span", { class: ["text-danger"] }, [
+                            _vm._v(_vm._s(_vm.allerros.is_active[0]))
+                          ])
+                        : _vm._e()
+                    ])
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -38347,7 +38469,10 @@ var render = function() {
                 [
                   _c(
                     "router-link",
-                    { staticClass: "btn btn-default", attrs: { to: "/" } },
+                    {
+                      staticClass: "btn btn-warning float-left",
+                      attrs: { to: "/" }
+                    },
                     [_vm._v("<< Back")]
                   ),
                   _vm._v(" "),
@@ -38369,10 +38494,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-primary pull-right", attrs: { type: "submit" } },
+      { staticClass: "btn btn-primary float-right", attrs: { type: "submit" } },
       [
         _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-        _vm._v(" Save\n                        ")
+        _vm._v(" Update Bank\n                        ")
       ]
     )
   }
@@ -38435,8 +38560,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
+              { staticClass: "text-center" },
               _vm._l(_vm.banks, function(bank, index) {
                 return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(index + 1))]),
+                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(bank.name))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(bank.email))]),
@@ -38459,7 +38587,7 @@ var render = function() {
                       _c(
                         "router-link",
                         {
-                          staticClass: "btn btn-xs btn-primary",
+                          staticClass: "btn btn-sm btn-primary",
                           attrs: {
                             to: { name: "BankEdit", params: { id: bank.id } }
                           }
@@ -38474,7 +38602,7 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "btn btn-xs btn-danger",
+                          staticClass: "btn btn-sm btn-danger",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -38521,16 +38649,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Name")]),
+      _c("tr", { staticClass: "text-center" }, [
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("Id")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", { attrs: { width: "25%" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Location")]),
+        _c("th", { attrs: { width: "30%" } }, [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Active Status")]),
+        _c("th", { attrs: { width: "15%" } }, [_vm._v("Location")]),
         _vm._v(" "),
-        _c("th", { attrs: { width: "10%" } }, [_vm._v("Action")])
+        _c("th", { attrs: { width: "10%" } }, [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", { attrs: { width: "15%" } }, [_vm._v("Action")])
       ])
     ])
   }
