@@ -1,5 +1,7 @@
 <template>
     <div class="col-lg-12">
+        <div v-if="message" class="alert">{{ message }}</div>
+
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
@@ -54,30 +56,44 @@
     export default {
         data: function () {
             return {
-                banks: []
+                banks: [],
+                message: null,
             }
         },
         created() {
             var app = this;
-            axios.post('/settings/bank-list-v2')
+            axios.post('/bank-list')
                 .then(function (resp) {
                     // console.log(resp.data);
                     app.banks = resp.data;
                 })
         },
         methods: {
-            deleteEntry(id, index) {
-                if (confirm("Are you sure to delete it?")) {
-                    var app = this;
-                    axios.get('/settings/bank-list-v2/delete/' + id)
-                        .then(function (resp) {
-                            app.banks.splice(index, 1);
-                        })
-                        .catch(function (resp) {
-                            alert("Could not delete company");
-                        });
-                }
+            deleteEntry: function (id, index) {
+                var app = this;
+                axios.delete('/bank-delete/' + id)
+                    .then(function (response){
+                        app.banks.splice(index, 1);
+                        app.message = 'Bank Delete Successfully';
+                        console.log('Bank successfully Delete');
+                        setTimeout(() => app.message, 1000);
+                    })
+                    .catch(function (response) {
+                        alert("Could not delete Bank");
+                    });
             }
         }
     }
 </script>
+
+<style scoped>
+    .alert {
+        background: lightgreen;
+        color: black;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        border: 1px solid darkgreen;
+        border-radius: 5px;
+    }
+</style>

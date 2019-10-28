@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class SettingsController extends Controller
 {
-    public function BankListv2()
+    public function BankList()
     {
         $datas = Bank::where('is_active', [1,0])->orderBy('id', 'desc')
             ->get(['id','name', 'is_active','email','location']);
@@ -38,13 +38,15 @@ class SettingsController extends Controller
             ->make(true);
     }
 
-    public function storeBankv2(Request $request) {
+    public function storeBank(Request $request) {
         $this->validate($request, [
             'name' => 'required',
             'code' => 'required',
             'location' => 'required',
             'email' => 'required|email',
             'phone' => 'required|Max:50|regex:/[0-9+,-]$/',
+            'website' => 'required',
+            'address' => 'required'
         ]);
 
         try {
@@ -70,12 +72,12 @@ class SettingsController extends Controller
         }
     }
 
-    public function editBankv2($bank_id) {
+    public function editBank($bank_id) {
         $data = Bank::where('id', $bank_id)->first();
         return $data;
     }
 
-    public function updateBankv2($bank_id, Request $request) {
+    public function updateBank($bank_id, Request $request) {
         try{
             Bank::where('id', $bank_id)->update([
                 'name' => $request->get('name'),
@@ -96,7 +98,5 @@ class SettingsController extends Controller
     public function deleteBank($bank_id, Request $request){
         $bank = Bank::find($bank_id);
         $bank->delete();
-        Session::flash('success', 'Data is Delete successfully!');
-        return redirect('/settings/bank-list-v2');
     }
 }

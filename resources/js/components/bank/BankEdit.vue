@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="container">
+            <div v-if="message" class="alert">{{ message }}</div>
             <div class="card">
                 <div class="card-header">Create new Bank</div>
                 <div class="card-body">
@@ -10,14 +11,14 @@
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star">Name</label>
                                     <div :class="['col-md-8', allerros.name ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.name" class="form-control">
+                                        <input type="text" v-model="bank.name" class="form-control input-sm">
                                         <span v-if="allerros.name" :class="['text-danger']">{{ allerros.name[0] }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star">Code</label>
                                     <div :class="['col-md-8', allerros.bank_code ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.bank_code" class="form-control">
+                                        <input type="number" v-model="bank.bank_code" class="form-control input-sm">
                                         <span v-if="allerros.bank_code" :class="['text-danger']">{{ allerros.bank_code[0] }}</span>
                                     </div>
                                 </div>
@@ -29,14 +30,14 @@
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star">Email</label>
                                     <div :class="['col-md-8', allerros.email ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.email" class="form-control">
+                                        <input type="email" v-model="bank.email" class="form-control input-sm">
                                         <span v-if="allerros.email" :class="['text-danger']">{{ allerros.email[0] }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star">Phone</label>
                                     <div :class="['col-md-8', allerros.phone ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.phone" class="form-control">
+                                        <input type="number" v-model="bank.phone" class="form-control input-sm">
                                         <span v-if="allerros.phone" :class="['text-danger']">{{ allerros.phone[0] }}</span>
                                     </div>
                                 </div>
@@ -48,14 +49,14 @@
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4 ">Website</label>
                                     <div :class="['col-md-8', allerros.website ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.website" class="form-control">
+                                        <input type="url" v-model="bank.website" class="form-control input-sm">
                                         <span v-if="allerros.website" :class="['text-danger']">{{ allerros.website[0] }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star">Location</label>
                                     <div :class="['col-md-8', allerros.location ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.location" class="form-control">
+                                        <input type="text" v-model="bank.location" class="form-control input-sm">
                                         <span v-if="allerros.location" :class="['text-danger']">{{ allerros.location[0] }}</span>
                                     </div>
                                 </div>
@@ -67,7 +68,7 @@
                                 <div class="col-md-6 row">
                                     <label class="control-label col-md-4  required-star ">Address</label>
                                     <div :class="['col-md-8', allerros.address ? 'has-error' : '']">
-                                        <input type="text" v-model="bank.address" class="form-control">
+                                        <textarea class="form-control input-sm" v-model="bank.address" rows="2" cols="2"></textarea>
                                         <span v-if="allerros.address" :class="['text-danger']">{{ allerros.address[0] }}</span>
                                     </div>
                                 </div>
@@ -102,16 +103,17 @@
             let id = app.$route.params.id;
             console.log(id);
             app.bank_id = id;
-            axios.get('/settings/edit-bank-v2/' + id)
+            axios.get('/edit-bank/' + id)
                 .then(function (resp) {
                     app.bank = resp.data;
                 })
                 .catch(function () {
-                    alert("Could not load your company")
+                    alert("Could not edit Bank")
                 });
         },
         data: function () {
             return {
+                message: null,
                 bank_id: null,
                 allerros: [],
                 bank: {
@@ -130,14 +132,28 @@
             saveForm() {
                 var app = this;
                 var newCompany = app.bank;
-                axios.patch('/settings/update-bank-v2/' + app.bank_id, newCompany)
+                axios.patch('/update-bank/' + app.bank_id, newCompany)
                     .then(function (resp) {
-                            app.$router.replace('/');
+                        app.message = 'Bank Update Successfully';
+                        console.log('Bank Update Successfully');
+                        setTimeout(() => app.$router.push({path: '/'}), 1000);
                     })
                     .catch(function (resp) {
-                        alert("Could not create your company");
+                        alert("Could not update Bank");
                     });
             }
         }
     }
 </script>
+
+<style scoped>
+    .alert {
+        background: lightgreen;
+        color: black;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        border: 1px solid darkgreen;
+        border-radius: 5px;
+    }
+</style>

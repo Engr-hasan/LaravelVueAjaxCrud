@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('settings/bank-list-v2', "SettingsController@BankListv2");
-Route::post('settings/store-bank-v2', "SettingsController@storeBankv2");
-Route::get('settings/edit-bank-v2/{id}', "SettingsController@editBankv2");
-Route::patch('settings/update-bank-v2/{id}', "SettingsController@updateBankv2");
-Route::get('settings/bank-list-v2/delete/{id}', "SettingsController@deleteBank");
+Route::post('bank-list', "SettingsController@BankList");
+Route::post('store-bank', "SettingsController@storeBank");
+Route::get('edit-bank/{id}', "SettingsController@editBank");
+Route::patch('update-bank/{id}', "SettingsController@updateBank");
+Route::delete('bank-delete/{id}', "SettingsController@deleteBank");
